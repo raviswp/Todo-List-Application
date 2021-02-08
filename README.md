@@ -18,7 +18,7 @@ I have Used Spring Boot to develop the given task. Spring Boot contains in-built
 
 **Running the Jar:**
 1. Go to the path of Todo-List-Application/target directory.
-2. Execute the command " java -jar Todo-List-Application.jar"
+2. Execute the command " java -jar <Snapshot-Name>.jar"
 3. open the browser and type " http://localhost:8080 "
 4. Give the credentials UserName as "test" and password as "pwd123".
 
