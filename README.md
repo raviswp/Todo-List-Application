@@ -17,8 +17,8 @@ I have Used Spring Boot to develop the given task. Spring Boot contains in-built
 2. Execute command " mvn package"
 
 **Running the Jar:**
-1. Go to the path of Todo-List-Application/target directory.
-2. Execute the command " java -jar {Snapshot-Name}.jar"
+1. Go to the path of Todo-List-Application/target **or** Todo-List-Application/ directory.
+2. Execute the command " java -jar {Snapshot-Name}.jar" 
 3. open the browser and type " http://localhost:8080 "
 4. Give the credentials UserName as "test" and password as "pwd123".
 
