@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link th:href="@{/images/favicon-32x32.png}" href="../static/images/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
+    <link th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link th:href="@{/css/main.css}" href="../static/css/main.css" rel="stylesheet" media="screen" />
+
+</head>
+<body>
+<div class="container">
+
+    <div class="row" style="margin-top:20px">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <div>
+                <form  name="register-form" id="Create-form" class="large-form" th:action="@{/create}" action="/create" th:object="${todoDTO}" method="POST">
+                    <div class="form-group">
+                        <label for="name">Todo Name</label>
+                        <input type="text" name="name" id="name" class="form-control input-lg" th:field="*{name}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description" class="form-control input-lg" th:field="*{description}"/>
+                    </div>
+                    <button type="submit" id="create-button" class="btn btn-warning btn-lg">Create</button>
+                </form>
+            </div>

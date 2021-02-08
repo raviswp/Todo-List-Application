@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TODO Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- Bootstrap -->
+    <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body style="padding-top:50px;">
+<!-- Nav Bar -->
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">My Tasks</a>
+        </div>
+    </div>
+</div>
+
+<!-- Body -->
+<div class="container">
+    <h1>My ToDo List</h1>
+
+    <hr/>
+
+    <div class = "todoList">
+        <form class="form-horizontal" role="form" th:action="@{/update}" th:object="${selection}" method="POST">
+            <table class="table table-bordered table-striped" id="todoItems">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Creation</th>
+                    <th>Last Update</th>
+                    <th>isDone</th>
+                    <th>selection</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="todo : ${todos}">
+                    <td th:text="${todo.name}">Item_name</td>
+                    <td th:text="${todo.description}">item_description</td>
+                    <td th:text="${todo.creationdate}">item_creationdate</td>
+                    <td th:text="${todo.lasupdate}">item_lasupdate</td>
+                    <td th:text="${todo.complete}">item_complete</td>
+                    <td><input type="checkbox" th:checked="${todo.complete} == true" th:value="${todo.id}" th:field="*{selected}" id="checkbox" name="checkbox"/></td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- Update Button -->
+            <button type="submit" class="btn btn-primary" name="action" value="update">Update Tasks</button>
+            <button type="submit" class="btn btn-primary" name="action" value="delete" th:formaction="'/delete'">Delete Tasks</button>
+        </form>
+        <br>
+        <a th:href="@{/create}"><button type="submit" class="btn btn-primary">Create Task</button> </a>
+        <a th:href="@{/logout}"><button type="submit" class="btn btn-primary">Logout</button> </a>
+    </div>
+
+    <hr/>
+
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.min.js"></script>
+
+</body>
+</html>
